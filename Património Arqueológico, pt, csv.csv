@@ -1,0 +1,18 @@
+id,gid,codigo,dominio,subdominio,familia,objecto,ident_gene,ident_part,regula,cronologia,obs,freguesia,lat,lon,id_patri,id_orden
+1,1,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Mamoa 1 do Alto da Boavista, Macinhata do Vouga",,V milenio a.C. / II milenio a.C.,,Macinhata do Vouga,"40º 39' 12.41"" N","8º 26' 27.77"" W",441,E1
+2,2,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Mamoa 2 da Malaposta, Macinhata do Vouga",,V milenio a.C. / II milenio a.C.,Serem,Macinhata do Vouga,"40º 40' 0.12"" N","8º 28' 31.46"" W",442,E2
+3,3,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Mamoa 1 de Ventoso, Prestimo",,V milenio a.C. / II milenio a.C.,,Prestimo,"40º 38' 23.38"" N","8º 21' 4.58"" W",443,E3
+4,4,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Cova da Moura, Casal d' Alvaro, Espinhel",,Indeterminada,,Espinhel,"40º 35' 1.70"" N","8º 28' 22.50"" W",445,E5
+5,5,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Povoado de Vila Verde (antiga Villa de Belhe), Lamas do Vouga",,Alta Idade Media,,Lamas do Vouga,"40º 38' 13.74"" N","8º 28' 42.96"" W",456,E16
+6,6,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Povoado fortificado, Serem, Macinhata do Vouga",,Indeterminada,,Macinhata do Vouga,"40º 39' 5.17"" N","8º 28' 2.45"" W",449,E9
+7,7,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Bico da Mota, Ois da Ribeira",,Proto-historica(?),,Ois da Ribeira,"40º 34' 40.18"" N","8º 30' 47.84"" W",447,E7
+8,8,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Bascos (Vascos), Espinhel",,Pre-historia / Arte rupestre (?),,Espinhel,"40º 34' 8.80"" N","8º 28' 43.68"" W",446,E6
+9,9,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Mamoa 1 da Maçoida, Valongo do Vouga",,V milenio a.C. / II milenio a.C.,,Valongo do Vouga,"40º 36' 33.44"" N","8º 23' 27.70"" W",444,E4
+10,10,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Goucha, Piedade, Espinhel",,"Idade do Ferro, Romano, Mediaval",,Espinhel,"40º 33' 51.78"" N","8º 30' 7.00"" W",448,E8
+11,11,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Goucha 2, Espinhel",,"Romano, Mediaval",,Espinhel,"40º 34' 4.40"" N","8º 29' 55.81"" W",450,E10
+12,12,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Ponte Pedrinha, Ois da Ribeira",,Romano (?),,Ois da Ribeira,"40º 35' 13.08"" N","8º 30' 16.69"" W",451,E11
+13,13,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,Travasso,,Romano,,Travasso,"40º 35' 24.66"" N","8º 30' 32.04"" W",452,E12
+14,14,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Fonte Romana da Forcada, Aguada de Cima",,Provavelmente de Origem Romana,,Aguada de Cima,"40º 30 57.96"" N","8º 24' 29.52"" W",453,E13
+15,15,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Cabeço do Vouga, Rua do Cardanho, Lamas do Vouga",,Tardo romano/medieval,,Lamas do Vouga,"40º 38 4.56"" N","8º 28' 4,44"" W",454,E14
+16,16,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Necropole das Almas Santas do Passal, Lamas do Vouga",,Alta Idade Media (seculo X),,Lamas do Vouga,"40º 37 51.78"" N","8º 27' 53.82"" W",455,E15
+17,17,0,PLANTA_ORDENAMENTO,PATRIMONIO,PATRIMONIO_ARQUEOLOGICO,PATRIMONIO_ARQUEOLOGICO,,"Torre de menagem eventualmente Atalaia mediaval, Fontinha, Segadaes",,Provavel Origem Medieval,,Segadaes,"40º 36 21.06"" N","8º 30' 57.74"" W",457,E17
