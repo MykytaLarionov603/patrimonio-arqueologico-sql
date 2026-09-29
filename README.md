@@ -1,46 +1,46 @@
 # patrimonio-arqueologico-sql
 
-# Património Arqueológico — Concelho de Águeda
+# Archaeological Heritage — Municipality of Águeda
 
-Projeto de análise de dados sobre o património arqueológico do concelho de Águeda,
-usando PostgreSQL para tratar os dados e Power BI para os visualizar num painel
-interativo com gráficos e mapa.
+Data analysis project on the archaeological heritage of the municipality of Águeda,
+using PostgreSQL to process the data and Power BI to visualize it in an
+interactive dashboard with charts and a map.
 
-## Fonte dos dados
-Câmara Municipal de Águeda — Portal de Dados Abertos
+## Data source
+Águeda Municipal Council — Open Data Portal
 https://dados.gov.pt/organizations/camara-municipal-de-agueda
 
-## Ferramentas usadas
-- **PostgreSQL + pgAdmin** — importação, tratamento e consulta dos dados
-- **Power BI** — visualização, gráficos e mapa interativo
+## Tools used
+- **PostgreSQL + pgAdmin** — data import, processing and querying
+- **Power BI** — visualization, charts and interactive map
 
-## Pergunta do projeto
-**Como se distribui o património arqueológico do concelho por freguesia e por período cronológico, e onde se localiza no mapa?**
+## Project question
+**How is the archaeological heritage of the municipality distributed by parish and by chronological period, and where is it located on the map?**
 
-Para responder, foram feitas três análises:
-1. Número de sítios por freguesia
-2. Número de sítios por período cronológico
-3. Localização de cada sítio num mapa
+To answer this, three analyses were carried out:
+1. Number of sites per parish
+2. Number of sites per chronological period
+3. Location of each site on a map
 
-## O que descobri
-- 17 sítios arqueológicos identificados no concelho de Águeda
-- Espinhel é a freguesia com mais sítios (4 de 17)
-- Por período cronológico, os sítios de época Romana e os de cronologia
-  Indeterminada empatam como os mais comuns (5 sítios cada), seguidos da
-  Pré-história (4 sítios) e do período Medieval (3 sítios)
-- A classificação por período é aproximada: o campo `cronologia` original
-  vem em texto livre (ex: "Romano (?)", "Alta Idade Media", "Tardo
-  romano/medieval") e foi simplificada com uma regra baseada em palavras-
-  chave, que pode falhar em casos de variação de palavra (ex: "Romana" em
-  vez de "Romano" não foi reconhecido nessa categoria)
+## Findings
+- 17 archaeological sites identified in the municipality of Águeda
+- Espinhel is the parish with the most sites (4 out of 17)
+- By chronological period, Roman-era sites and sites with an Undetermined
+  chronology are tied as the most common (5 sites each), followed by
+  Prehistory (4 sites) and the Medieval period (3 sites)
+- The classification by period is approximate: the original `cronologia`
+  field is free text (e.g. "Romano (?)", "Alta Idade Media", "Tardo
+  romano/medieval") and was simplified using a keyword-based rule, which
+  can fail on word variations (e.g. "Romana" instead of "Romano" was not
+  recognized under that category)
 
-## Processo — passo a passo
+## Process — step by step
 
-### 1. Importação do CSV para o PostgreSQL
-Criação da tabela e importação do ficheiro CSV original através do pgAdmin
-(*Import/Export Data*), com o campo **Escape** definido como `"` em vez do
-valor por defeito `'`, para lidar corretamente com as plicas presentes nas
-coordenadas (ex: `40º 39' 12.41" N`).
+### 1. Importing the CSV into PostgreSQL
+Table creation and import of the original CSV file through pgAdmin
+(*Import/Export Data*), with the **Escape** field set to `"` instead of
+the default `'`, to correctly handle the single quotes present in the
+coordinates (e.g. `40º 39' 12.41" N`).
 
 ```sql
 CREATE TABLE pa_test (
@@ -64,9 +64,9 @@ CREATE TABLE pa_test (
 );
 ```
 
-### 2. Exploração dos dados
-Consultas iniciais para conhecer a tabela: total de registos, freguesias
-existentes, filtros por cronologia e por tipo de sítio.
+### 2. Data exploration
+Initial queries to get familiar with the table: total records, existing
+parishes, filters by chronology and by site type.
 
 ```sql
 SELECT count(*) FROM pa_test;
@@ -76,7 +76,7 @@ SELECT DISTINCT freguesia FROM pa_test;
 SELECT ident_part FROM pa_test WHERE ident_part ILIKE '%mamoa%';
 ```
 
-### 3. Sítios por freguesia
+### 3. Sites per parish
 
 ```sql
 SELECT freguesia, count(*) AS total
@@ -85,9 +85,9 @@ GROUP BY freguesia
 ORDER BY total DESC;
 ```
 
-### 4. Sítios por período cronológico
-A coluna `cronologia` tinha muitos valores diferentes em texto livre, por
-isso foram agrupados em categorias com `CASE`:
+### 4. Sites per chronological period
+The `cronologia` column had many different free-text values, so they were
+grouped into categories using `CASE`:
 
 ```sql
 SELECT
@@ -103,10 +103,10 @@ GROUP BY periodo
 ORDER BY total DESC;
 ```
 
-### 5. Conversão das coordenadas
-As coordenadas vinham em graus/minutos/segundos (ex: `40º 39' 12.41" N`) e
-foram convertidas para graus decimais, formato exigido pelo Power BI para
-desenhar o mapa:
+### 5. Coordinate conversion
+The coordinates were originally in degrees/minutes/seconds format
+(e.g. `40º 39' 12.41" N`) and were converted to decimal degrees, the
+format required by Power BI to draw the map:
 
 ```sql
 ALTER TABLE pa_test ADD COLUMN lat_dec numeric, ADD COLUMN lon_dec numeric;
@@ -120,9 +120,9 @@ UPDATE pa_test SET
            + (regexp_split_to_array(lon, '[^0-9.]+'))[3]::numeric / 3600 );
 ```
 
-### 6. Views criadas para o Power BI
-Em vez de importar a tabela toda, foram criadas *views* já com o resultado
-de cada análise:
+### 6. Views created for Power BI
+Instead of importing the entire table, views were created containing the
+result of each analysis:
 
 ```sql
 CREATE VIEW v_sitios_por_freguesia AS
@@ -149,16 +149,16 @@ SELECT ident_part, freguesia, cronologia, lat_dec, lon_dec
 FROM pa_test;
 ```
 
-### 7. Ligação ao Power BI
-As três *views* foram importadas no Power BI (*Obter dados → Base de dados
-PostgreSQL*) e usadas para criar:
-- um gráfico de barras com os sítios por freguesia
-- um gráfico de barras com os sítios por período cronológico
-- um mapa com a localização de cada sítio, usando `lat_dec` e `lon_dec`
-  classificados como categorias de dados Latitude/Longitude
+### 7. Connecting to Power BI
+The three views were imported into Power BI (*Get Data → PostgreSQL
+database*) and used to create:
+- a bar chart of sites per parish
+- a bar chart of sites per chronological period
+- a map showing the location of each site, using `lat_dec` and `lon_dec`
+  set as Latitude/Longitude data categories
 
-## Ficheiros neste repositório
-- `Património_Arqueológico__pt__csv.csv` — dados originais
-- `consultas.sql` — todas as consultas SQL usadas no projeto
-- `painel_patrimonio.png` — captura de ecrã do painel final no Power BI
-- `patrimonio_arqueologico.pbix` — ficheiro do Power BI 
+## Files in this repository
+- `Património_Arqueológico__pt__csv.csv` — original data
+- `consultas.sql` — all SQL queries used in the project
+- `painel_patrimonio.png` — screenshot of the final Power BI dashboard
+- `patrimonio_arqueologico.pbix` — Power BI file
